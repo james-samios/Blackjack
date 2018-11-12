@@ -18,87 +18,115 @@ namespace WindowsFormsApp1
         }
 
         int numberOfDecks = 4;
+        int playerCount = 2;
         List<Card> deck = new List<Card>();
+        List<Hand> players = new List<Hand>();
+        Hand dealer = new Hand();
+        Image cardBack = Image.FromFile(@"../../Cards/Back.png");
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            CreateGame();
+
             valueLabel.Hide();
-            startCardsBtn.Hide();
+            dealBtn.Hide();
             startGameBtn.Show();
             endGameBtn.Hide();
-            
+            standBtn.Hide();
+            startCardsBtn.Hide();
+            userCard3.Hide();
+            userCard4.Hide();
+            userCard5.Hide();
+            userCard6.Hide();
+            currentTurnLbl.Hide();
+
         }
 
         private void StartGame()
         {
             startGameBtn.Hide();
-            startCardsBtn.Show();
+            dealBtn.Hide();
             endGameBtn.Show();
+            startCardsBtn.Show();
 
-            Image cardBack = Image.FromFile(@"../../Cards/Back.png");
 
             userCard1.Image = cardBack;
             userCard2.Image = cardBack;
+
+            string turn = "Dealer";
+            currentTurnLbl.Show();
+            currentTurnLbl.Text = "TURN: " + turn;
         }
 
-        private void GetCards()
+        public void Wait(int ms)
         {
-            startCardsBtn.Hide();
-            CreateDeck();
-            Shuffle();
-            foreach (Card c in deck)
-            {
-                Console.WriteLine(c.Name + ", " + c.Value);
-            }
+            DateTime start = DateTime.Now;
+            while ((DateTime.Now - start).TotalMilliseconds < ms)
+                Application.DoEvents();
 
-            // 1: Spades, 2: Hearts, 3: Diamonds, 4: Clubs
-            Random ct = new Random();
-            int card1 = ct.Next(1, 5);
-            int card2 = ct.Next(1, 5);
-
-            valueLabel.Show();
-
-            userCard1.Image = Image.FromFile(@"../../Cards/" + deck[0].GetImage() + "-" + card1 + ".png");
-            userCard2.Image = Image.FromFile(@"../../Cards/" + deck[1].GetImage() + "-" + card2 + ".png");
-
-            // Value of cards
-            // value1 = deck0
-            // value2 = deck1
-            int value1 = 0;
-            int value2 = 0;
-
-            if (deck[0].GetImage() == "King" || deck[0].GetImage() == "Queen" || deck[0].GetImage() == "Jack")
-            {
-                value1 += 10;
-            }
-            if (deck[1].GetImage() == "King" || deck[1].GetImage() == "Queen" || deck[1].GetImage() == "Jack")
-            {
-                value2 += 10;
-            }
-            if (deck[0].GetImage() == "2" || deck[0].GetImage() == "3" || deck[0].GetImage() == "4" || deck[0].GetImage() == "5" || deck[0].GetImage() == "6" || deck[0].GetImage() == "7" || deck[0].GetImage() == "8" || deck[0].GetImage() == "9" || deck[0].GetImage() == "10")
-            {
-                int deck0 = Convert.ToInt32(deck[0].GetImage());
-                value1 += deck0;
-            }
-            if (deck[0].GetImage() == "Ace")
-            {
-                value1 += 11;
-            }
-            if (deck[1].GetImage() == "Ace")
-            {
-                value2 += 11;
-            }
-            if (deck[1].GetImage() == "2" || deck[1].GetImage() == "3" || deck[1].GetImage() == "4" || deck[1].GetImage() == "5" || deck[1].GetImage() == "6" || deck[1].GetImage() == "7" || deck[1].GetImage() == "8" || deck[1].GetImage() == "9" || deck[1].GetImage() == "10")
-            {
-                int deck1 = Convert.ToInt32(deck[1].GetImage());
-                value2 += deck1;
-            }
-
-            int finalValue = value1 + value2;
-            Console.WriteLine("------------\nCARD 1: " + value1 + "\nCARD 2: " + value2 + "\nTOTAL: " + finalValue + "\n------------");
-
-            valueLabel.Text = "Value: " + finalValue;
         }
+
+        public void dealCards()
+        {
+            foreach (Hand h in players)
+            {
+                h.addCard(deck[0]);
+                deck.Remove(deck[0]);
+            }
+        }
+        public void createPlayers()
+        {
+            for (int i = 0; i < playerCount; i++)
+            {
+                players.Add(new Hand());
+            }
+        }
+        public void CreateGame()
+        {
+            CreateDeck();
+            createPlayers();
+            dealCards();
+            dealCards();
+            foreach(Hand h in players)
+            {
+                string cardString = "";
+                foreach (Card c in h.cards)
+                {
+                    cardString += c.Value+", ";
+                }
+                Console.WriteLine("Total: " + h.calculateValue().ToString() + ", Cards: " + cardString);
+            }
+
+        }
+
+        //private void GetCards()
+        //{
+        //    descLbl.Text = "The Dealer is giving everyone their cards.";
+        //    Wait(1500);
+        //    descLbl.Text = "";
+
+        //    startCardsBtn.Hide();
+        //    dealBtn.Show();
+        //    standBtn.Show();
+        //    CreateDeck();
+
+        //    // 1: Spades, 2: Hearts, 3: Diamonds, 4: Clubs
+        //    Random ct = new Random();
+        //    int card1 = ct.Next(1, 5);
+        //    int card2 = ct.Next(1, 5);
+
+        //    valueLabel.Show();
+
+        //    userCard1.Image = Image.FromFile(@"../../Cards/" + deck[0].GetImage() + "-" + card1 + ".png");
+        //    userCard2.Image = Image.FromFile(@"../../Cards/" + deck[1].GetImage() + "-" + card2 + ".png");
+
+            
+        //    int finalValue = (deck[0].Value + deck[1].Value);
+        //    Console.WriteLine("------------\nCARD 1: " + deck[0].Value + "\nCARD 2: " + deck[1].Value + "\nCARD 3: " + deck[2].Value + "\nCARD 4: " + deck[3].Value + "\nCARD 5: " + deck[4].Value + "\nCARD 6: " + deck[5].Value + "\nTOTAL (CARD 1 & 2): " + finalValue + "\n------------");
+
+        //    valueLabel.Text = "Value: " + finalValue;
+        //}
 
         private void EndGame()
         {
@@ -146,6 +174,7 @@ namespace WindowsFormsApp1
                     }
                 }
             }
+            Shuffle();
         }
 
         private void Shuffle()
@@ -184,10 +213,139 @@ namespace WindowsFormsApp1
         {
             EndGame();
         }
+        private static int card = 2;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GetCards();
+            card++;
+
+            userCard3.Show();
+            userCard4.Show();
+            userCard5.Show();
+            userCard6.Show();
+
+            Random ct = new Random();
+            int card3 = ct.Next(1, 5);
+            int card4 = ct.Next(1, 5);
+            int card5 = ct.Next(1, 5);
+            int card6 = ct.Next(1, 5);
+
+            //if (card == 3)
+            //{
+            //    userCard3.Image = cardBack;
+            //    descLbl.Text = "You have decided to Hit. You have been given another card.";
+            //    Wait(1000);
+            //    descLbl.Text = "";
+            //    userCard3.Image = Hand.image;
+            //    int finalValue = (deck[0].Value + deck[1].Value + deck[2].Value);
+            //    valueLabel.Text = "Value: " + finalValue;
+            //    if (finalValue > 21) {
+            //        dealBtn.Enabled = false;
+            //        standBtn.Enabled = false;
+            //        valueLabel.Text = "BUST - YOU LOSE! Final Value: " + finalValue;
+            //        valueLabel.ForeColor = Color.Red;
+            //    } else if (finalValue == 21)
+            //    {
+            //        dealBtn.Enabled = false;
+            //        standBtn.Enabled = false;
+            //        valueLabel.Text = "YOU WIN! Final Value: " + finalValue;
+            //        valueLabel.ForeColor = Color.Green;
+            //    }
+            //} else if (card == 4)
+            //{
+            //    userCard4.Image = Image.FromFile(@"../../Cards/Back.png");
+            //    descLbl.Text = "You have decided to Hit. You have been given another card.";
+            //    Wait(1000);
+            //    descLbl.Text = "";
+            //    userCard4.Image = Image.FromFile(@"../../Cards/" + deck[3].GetImage() + "-" + card4 + ".png");
+            //    int finalValue = (deck[0].Value + deck[1].Value + deck[2].Value + deck[3].Value);
+            //    valueLabel.Text = "Value: " + finalValue;
+            //    if (finalValue > 21)
+            //    {
+            //        dealBtn.Enabled = false;
+            //        standBtn.Enabled = false;
+            //        valueLabel.Text = "BUST - YOU LOSE! Final Value: " + finalValue;
+            //        valueLabel.ForeColor = Color.Red;
+            //    }
+            //    else if (finalValue == 21)
+            //    {
+            //        dealBtn.Enabled = false;
+            //        standBtn.Enabled = false;
+            //        valueLabel.Text = "YOU WIN! Final Value: " + finalValue;
+            //        valueLabel.ForeColor = Color.Green;
+            //    }
+            //} else if (card == 5)
+            //{
+            //    userCard5.Image = Image.FromFile(@"../../Cards/Back.png");
+            //    descLbl.Text = "You have decided to Hit. You have been given another card.";
+            //    Wait(1000);
+            //    descLbl.Text = "";
+            //    userCard5.Image = Image.FromFile(@"../../Cards/" + deck[4].GetImage() + "-" + card5 + ".png");
+            //    int finalValue = (deck[0].Value + deck[1].Value + deck[2].Value + deck[3].Value + deck[4].Value);
+            //    valueLabel.Text = "Value: " + finalValue;
+            //    if (finalValue > 21)
+            //    {
+            //        dealBtn.Enabled = false;
+            //        standBtn.Enabled = false;
+            //        valueLabel.Text = "BUST - YOU LOSE! Final Value: " + finalValue;
+            //        valueLabel.ForeColor = Color.Red;
+            //    }
+            //    else if (finalValue == 21)
+            //    {
+            //        dealBtn.Enabled = false;
+            //        standBtn.Enabled = false;
+            //        valueLabel.Text = "YOU WIN! Final Value: " + finalValue;
+            //        valueLabel.ForeColor = Color.Green;
+            //    }
+            //} else if (card == 6)
+            //{
+            //    userCard6.Image = Image.FromFile(@"../../Cards/Back.png");
+            //    descLbl.Text = "You have decided to Hit. You have been given another card.";
+            //    Wait(1000);
+            //    descLbl.Text = "";
+            //    userCard6.Image = Image.FromFile(@"../../Cards/" + deck[5].GetImage() + "-" + card6 + ".png");
+            //    int finalValue = (deck[0].Value + deck[1].Value + deck[2].Value + deck[3].Value + deck[4].Value + deck[5].Value);
+            //    valueLabel.Text = "Value: " + finalValue;
+            //    dealBtn.Enabled = false;
+            //    if (finalValue > 21)
+            //    {
+            //        dealBtn.Enabled = false;
+            //        standBtn.Enabled = false;
+            //        valueLabel.Text = "BUST - YOU LOSE! Final Value: " + finalValue;
+            //        valueLabel.ForeColor = Color.Red;
+            //    }
+            //    else if (finalValue == 21)
+            //    {
+            //        dealBtn.Enabled = false;
+            //        standBtn.Enabled = false;
+            //        valueLabel.Text = "YOU WIN! Final Value: " + finalValue;
+            //        valueLabel.ForeColor = Color.Green;
+            //    }
+            //}
+
+
+        }
+
+        private void startCardsBtn_Click(object sender, EventArgs e)
+        {
+            //GetCards();
+        }
+
+        private void standBtn_Click(object sender, EventArgs e)
+        {
+            // Stand button
+        }
+
+        private void restartBtn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to restart?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Restart();
+            }
+            else
+            {
+                // Do nothing
+            }
         }
     }
 }

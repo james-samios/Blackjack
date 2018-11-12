@@ -13,36 +13,33 @@ namespace WindowsFormsApp1
         public byte Value { get; set; }
         public string Name { get; set; }
         public bool Ace { get; set; }
+        
+        private string makeCardCode()
+        {
+            string s = "";
+            IDictionary<string, string> dict = new Dictionary<string, string>()
+            {
+                {"hearts",  "2"},
+                {"spades", "1" },
+                {"clubs", "4" },
+                {"diamonds", "3" }
+            };
+
+            s += this.Value.ToString();
+            s += "-";
+            s += dict[this.Suit];
+
+            return s;
+        }
+
+        public Image GetImage()
+        {
+             return Image.FromFile(@"../../Cards/" + makeCardCode() + ".png");
+
+        }
+
         public string uCode { get; set; }
         public Brush color { get; set; }
         
-        public string GetImage()
-        {
-            // https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/how-to-create-a-bitmap-at-run-time
-
-            Bitmap cardImage = new Bitmap(169, 231);
-            Graphics cardGraphics = Graphics.FromImage(cardImage);
-
-            //cardGraphics.FillRectangle(Brushes.White, 0, 0, 169, 231);
-
-            Point vPoint = new Point();
-            vPoint.X = 0;
-            vPoint.Y = 0;
-
-            Point sPoint = new Point();
-            sPoint.X = 110;
-            sPoint.Y = 160;
-
-            Font vfont = new Font("Helvetica", 50);
-            Font sfont = new Font("Helvetica", 50);
-
-            //cardGraphics.DrawString(this.Value.ToString(), vfont, this.color, vPoint);
-            //cardGraphics.DrawString(this.uCode, sfont, this.color, sPoint); 
-
-            string cardSettings = (this.Name);
-            
-
-            return cardSettings;
-        }
     }
 }
