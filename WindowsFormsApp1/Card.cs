@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
                 {"diamonds", "3" }
             };
 
-            s += this.Value.ToString();
+            s += this.Name;
             s += "-";
             s += dict[this.Suit];
 
