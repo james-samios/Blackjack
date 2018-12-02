@@ -16,8 +16,14 @@ namespace WindowsFormsApp1
         public Label winLoseLbl;
         public Button dealBtn;
         public Button standBtn;
-        bool isPlayer = false;
-        bool isDealer = false;
+        public PictureBox dealerCard1;
+        public int cardX;
+        public int cardY;
+        public int cardLeft;
+        public int cardTop;
+        public int cardSep;
+        public bool isPlayer = false;
+        public bool isDealer = false;
         Form1 main;
 
         public Hand(Form1 frm)
@@ -54,13 +60,14 @@ namespace WindowsFormsApp1
             {
                 PictureBox newCard = new PictureBox();
 
-                newCard.Size = new Size(169, 231);
-                newCard.Left = 11 + cardObjects.Count * 169 + (cardObjects.Count) * 20;
-                newCard.Top = 502;
+                newCard.SizeMode = PictureBoxSizeMode.StretchImage;
+                newCard.Size = new Size(cardX, cardY);
+                newCard.Left = cardLeft + cardObjects.Count * cardX + (cardObjects.Count) * cardSep;
+                newCard.Top = cardTop;
                 main.Controls.Add(newCard);
                 cardObjects.Add(newCard);
 
-                Console.WriteLine("added new card. left: " + newCard.Left.ToString());
+                Console.WriteLine("Added new card. Left: " + newCard.Left.ToString());
             }
 
 
@@ -74,10 +81,11 @@ namespace WindowsFormsApp1
                 valueLabel.Text = "Value: " + calculateValue().ToString();
                 if (calculateValue() > 21)
                 {
-                    winLoseLbl.Text = "BUST - YOU LOSE";
+                    winLoseLbl.Text = "BUST";
                     winLoseLbl.ForeColor = Color.Red;
                     standBtn.Enabled = false;
                     dealBtn.Enabled = false;
+                    valueLabel.Text = "Final Value: " + calculateValue().ToString();
                 }
             }
         }

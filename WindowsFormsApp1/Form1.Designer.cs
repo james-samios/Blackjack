@@ -53,33 +53,48 @@
             this.computer2Lbl = new System.Windows.Forms.Label();
             this.computer3Lbl = new System.Windows.Forms.Label();
             this.com1Card1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.com2Card1 = new System.Windows.Forms.PictureBox();
+            this.com3Card1 = new System.Windows.Forms.PictureBox();
+            this.dealerHiddenCard = new System.Windows.Forms.PictureBox();
+            this.dealerValueLbl = new System.Windows.Forms.Label();
+            this.com1Card2 = new System.Windows.Forms.PictureBox();
+            this.com2Card2 = new System.Windows.Forms.PictureBox();
+            this.com3Card2 = new System.Windows.Forms.PictureBox();
+            this.comp1ValueLbl = new System.Windows.Forms.Label();
+            this.comp1Bust = new System.Windows.Forms.Label();
+            this.comp2Bust = new System.Windows.Forms.Label();
+            this.comp3Bust = new System.Windows.Forms.Label();
+            this.comp2ValueLbl = new System.Windows.Forms.Label();
+            this.comp3ValueLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userCard1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userCard2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dealerCard1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dealerCard2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.com1Card1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.com2Card1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.com3Card1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dealerHiddenCard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.com1Card2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.com2Card2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.com3Card2)).BeginInit();
             this.SuspendLayout();
             // 
             // userCard1
             // 
-            this.userCard1.Location = new System.Drawing.Point(11, 502);
+            this.userCard1.Location = new System.Drawing.Point(11, 539);
             this.userCard1.Margin = new System.Windows.Forms.Padding(2);
             this.userCard1.Name = "userCard1";
-            this.userCard1.Size = new System.Drawing.Size(169, 231);
+            this.userCard1.Size = new System.Drawing.Size(131, 194);
             this.userCard1.TabIndex = 0;
             this.userCard1.TabStop = false;
             this.userCard1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // userCard2
             // 
-            this.userCard2.Location = new System.Drawing.Point(200, 502);
+            this.userCard2.Location = new System.Drawing.Point(156, 539);
             this.userCard2.Margin = new System.Windows.Forms.Padding(2);
             this.userCard2.Name = "userCard2";
-            this.userCard2.Size = new System.Drawing.Size(169, 231);
+            this.userCard2.Size = new System.Drawing.Size(131, 194);
             this.userCard2.TabIndex = 1;
             this.userCard2.TabStop = false;
             // 
@@ -98,7 +113,7 @@
             // 
             this.valueLabel.AutoSize = true;
             this.valueLabel.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.valueLabel.Location = new System.Drawing.Point(12, 464);
+            this.valueLabel.Location = new System.Drawing.Point(6, 502);
             this.valueLabel.Name = "valueLabel";
             this.valueLabel.Size = new System.Drawing.Size(88, 25);
             this.valueLabel.TabIndex = 3;
@@ -152,7 +167,7 @@
             // startCardsBtn
             // 
             this.startCardsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startCardsBtn.Location = new System.Drawing.Point(386, 679);
+            this.startCardsBtn.Location = new System.Drawing.Point(305, 679);
             this.startCardsBtn.Name = "startCardsBtn";
             this.startCardsBtn.Size = new System.Drawing.Size(299, 53);
             this.startCardsBtn.TabIndex = 8;
@@ -194,7 +209,7 @@
             // 
             this.winLoseLbl.AutoSize = true;
             this.winLoseLbl.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.winLoseLbl.Location = new System.Drawing.Point(14, 430);
+            this.winLoseLbl.Location = new System.Drawing.Point(8, 468);
             this.winLoseLbl.Name = "winLoseLbl";
             this.winLoseLbl.Size = new System.Drawing.Size(0, 25);
             this.winLoseLbl.TabIndex = 16;
@@ -265,7 +280,7 @@
             // 
             // dealerCard1
             // 
-            this.dealerCard1.Location = new System.Drawing.Point(377, 52);
+            this.dealerCard1.Location = new System.Drawing.Point(377, 50);
             this.dealerCard1.Margin = new System.Windows.Forms.Padding(2);
             this.dealerCard1.Name = "dealerCard1";
             this.dealerCard1.Size = new System.Drawing.Size(107, 141);
@@ -285,7 +300,7 @@
             // 
             this.computer1Lbl.AutoSize = true;
             this.computer1Lbl.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.computer1Lbl.Location = new System.Drawing.Point(1139, 170);
+            this.computer1Lbl.Location = new System.Drawing.Point(885, 125);
             this.computer1Lbl.Name = "computer1Lbl";
             this.computer1Lbl.Size = new System.Drawing.Size(171, 25);
             this.computer1Lbl.TabIndex = 25;
@@ -295,7 +310,7 @@
             // 
             this.computer2Lbl.AutoSize = true;
             this.computer2Lbl.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.computer2Lbl.Location = new System.Drawing.Point(1139, 309);
+            this.computer2Lbl.Location = new System.Drawing.Point(885, 281);
             this.computer2Lbl.Name = "computer2Lbl";
             this.computer2Lbl.Size = new System.Drawing.Size(171, 25);
             this.computer2Lbl.TabIndex = 26;
@@ -305,7 +320,7 @@
             // 
             this.computer3Lbl.AutoSize = true;
             this.computer3Lbl.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.computer3Lbl.Location = new System.Drawing.Point(1139, 450);
+            this.computer3Lbl.Location = new System.Drawing.Point(885, 437);
             this.computer3Lbl.Name = "computer3Lbl";
             this.computer3Lbl.Size = new System.Drawing.Size(171, 25);
             this.computer3Lbl.TabIndex = 27;
@@ -313,30 +328,134 @@
             // 
             // com1Card1
             // 
-            this.com1Card1.Location = new System.Drawing.Point(1030, 196);
+            this.com1Card1.Location = new System.Drawing.Point(890, 158);
             this.com1Card1.Margin = new System.Windows.Forms.Padding(2);
             this.com1Card1.Name = "com1Card1";
-            this.com1Card1.Size = new System.Drawing.Size(68, 99);
+            this.com1Card1.Size = new System.Drawing.Size(83, 117);
             this.com1Card1.TabIndex = 28;
             this.com1Card1.TabStop = false;
             // 
-            // pictureBox2
+            // com2Card1
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(1030, 341);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(68, 99);
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
+            this.com2Card1.Location = new System.Drawing.Point(890, 309);
+            this.com2Card1.Margin = new System.Windows.Forms.Padding(2);
+            this.com2Card1.Name = "com2Card1";
+            this.com2Card1.Size = new System.Drawing.Size(83, 117);
+            this.com2Card1.TabIndex = 29;
+            this.com2Card1.TabStop = false;
             // 
-            // pictureBox3
+            // com3Card1
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(1030, 485);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(68, 99);
-            this.pictureBox3.TabIndex = 30;
-            this.pictureBox3.TabStop = false;
+            this.com3Card1.Location = new System.Drawing.Point(890, 464);
+            this.com3Card1.Margin = new System.Windows.Forms.Padding(2);
+            this.com3Card1.Name = "com3Card1";
+            this.com3Card1.Size = new System.Drawing.Size(83, 117);
+            this.com3Card1.TabIndex = 30;
+            this.com3Card1.TabStop = false;
+            // 
+            // dealerHiddenCard
+            // 
+            this.dealerHiddenCard.Location = new System.Drawing.Point(377, 50);
+            this.dealerHiddenCard.Margin = new System.Windows.Forms.Padding(2);
+            this.dealerHiddenCard.Name = "dealerHiddenCard";
+            this.dealerHiddenCard.Size = new System.Drawing.Size(107, 141);
+            this.dealerHiddenCard.TabIndex = 31;
+            this.dealerHiddenCard.TabStop = false;
+            // 
+            // dealerValueLbl
+            // 
+            this.dealerValueLbl.AutoSize = true;
+            this.dealerValueLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dealerValueLbl.Location = new System.Drawing.Point(691, 23);
+            this.dealerValueLbl.Name = "dealerValueLbl";
+            this.dealerValueLbl.Size = new System.Drawing.Size(61, 18);
+            this.dealerValueLbl.TabIndex = 32;
+            this.dealerValueLbl.Text = "Value:";
+            this.dealerValueLbl.Visible = false;
+            // 
+            // com1Card2
+            // 
+            this.com1Card2.Location = new System.Drawing.Point(989, 158);
+            this.com1Card2.Margin = new System.Windows.Forms.Padding(2);
+            this.com1Card2.Name = "com1Card2";
+            this.com1Card2.Size = new System.Drawing.Size(83, 117);
+            this.com1Card2.TabIndex = 33;
+            this.com1Card2.TabStop = false;
+            // 
+            // com2Card2
+            // 
+            this.com2Card2.Location = new System.Drawing.Point(989, 309);
+            this.com2Card2.Margin = new System.Windows.Forms.Padding(2);
+            this.com2Card2.Name = "com2Card2";
+            this.com2Card2.Size = new System.Drawing.Size(83, 117);
+            this.com2Card2.TabIndex = 34;
+            this.com2Card2.TabStop = false;
+            // 
+            // com3Card2
+            // 
+            this.com3Card2.Location = new System.Drawing.Point(989, 464);
+            this.com3Card2.Margin = new System.Windows.Forms.Padding(2);
+            this.com3Card2.Name = "com3Card2";
+            this.com3Card2.Size = new System.Drawing.Size(83, 117);
+            this.com3Card2.TabIndex = 35;
+            this.com3Card2.TabStop = false;
+            // 
+            // comp1ValueLbl
+            // 
+            this.comp1ValueLbl.AutoSize = true;
+            this.comp1ValueLbl.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comp1ValueLbl.Location = new System.Drawing.Point(1062, 125);
+            this.comp1ValueLbl.Name = "comp1ValueLbl";
+            this.comp1ValueLbl.Size = new System.Drawing.Size(71, 23);
+            this.comp1ValueLbl.TabIndex = 36;
+            this.comp1ValueLbl.Text = "Value:";
+            // 
+            // comp1Bust
+            // 
+            this.comp1Bust.AutoSize = true;
+            this.comp1Bust.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comp1Bust.Location = new System.Drawing.Point(811, 125);
+            this.comp1Bust.Name = "comp1Bust";
+            this.comp1Bust.Size = new System.Drawing.Size(0, 25);
+            this.comp1Bust.TabIndex = 37;
+            // 
+            // comp2Bust
+            // 
+            this.comp2Bust.AutoSize = true;
+            this.comp2Bust.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comp2Bust.Location = new System.Drawing.Point(811, 281);
+            this.comp2Bust.Name = "comp2Bust";
+            this.comp2Bust.Size = new System.Drawing.Size(0, 25);
+            this.comp2Bust.TabIndex = 38;
+            // 
+            // comp3Bust
+            // 
+            this.comp3Bust.AutoSize = true;
+            this.comp3Bust.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comp3Bust.Location = new System.Drawing.Point(811, 437);
+            this.comp3Bust.Name = "comp3Bust";
+            this.comp3Bust.Size = new System.Drawing.Size(0, 25);
+            this.comp3Bust.TabIndex = 39;
+            // 
+            // comp2ValueLbl
+            // 
+            this.comp2ValueLbl.AutoSize = true;
+            this.comp2ValueLbl.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comp2ValueLbl.Location = new System.Drawing.Point(1062, 281);
+            this.comp2ValueLbl.Name = "comp2ValueLbl";
+            this.comp2ValueLbl.Size = new System.Drawing.Size(71, 23);
+            this.comp2ValueLbl.TabIndex = 40;
+            this.comp2ValueLbl.Text = "Value:";
+            // 
+            // comp3ValueLbl
+            // 
+            this.comp3ValueLbl.AutoSize = true;
+            this.comp3ValueLbl.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comp3ValueLbl.Location = new System.Drawing.Point(1062, 437);
+            this.comp3ValueLbl.Name = "comp3ValueLbl";
+            this.comp3ValueLbl.Size = new System.Drawing.Size(71, 23);
+            this.comp3ValueLbl.TabIndex = 41;
+            this.comp3ValueLbl.Text = "Value:";
             // 
             // Form1
             // 
@@ -344,8 +463,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
             this.ClientSize = new System.Drawing.Size(1328, 741);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.comp3ValueLbl);
+            this.Controls.Add(this.comp2ValueLbl);
+            this.Controls.Add(this.comp3Bust);
+            this.Controls.Add(this.comp2Bust);
+            this.Controls.Add(this.comp1Bust);
+            this.Controls.Add(this.comp1ValueLbl);
+            this.Controls.Add(this.com3Card2);
+            this.Controls.Add(this.com2Card2);
+            this.Controls.Add(this.com1Card2);
+            this.Controls.Add(this.dealerValueLbl);
+            this.Controls.Add(this.dealerHiddenCard);
+            this.Controls.Add(this.com3Card1);
+            this.Controls.Add(this.com2Card1);
             this.Controls.Add(this.com1Card1);
             this.Controls.Add(this.computer3Lbl);
             this.Controls.Add(this.computer2Lbl);
@@ -381,8 +511,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dealerCard1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dealerCard2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.com1Card1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.com2Card1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.com3Card1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dealerHiddenCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.com1Card2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.com2Card2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.com3Card2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,8 +549,19 @@
         private System.Windows.Forms.Label computer2Lbl;
         private System.Windows.Forms.Label computer3Lbl;
         private System.Windows.Forms.PictureBox com1Card1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox com2Card1;
+        private System.Windows.Forms.PictureBox com3Card1;
+        private System.Windows.Forms.PictureBox dealerHiddenCard;
+        private System.Windows.Forms.Label dealerValueLbl;
+        private System.Windows.Forms.PictureBox com1Card2;
+        private System.Windows.Forms.PictureBox com2Card2;
+        private System.Windows.Forms.PictureBox com3Card2;
+        private System.Windows.Forms.Label comp1ValueLbl;
+        private System.Windows.Forms.Label comp1Bust;
+        private System.Windows.Forms.Label comp2Bust;
+        private System.Windows.Forms.Label comp3Bust;
+        private System.Windows.Forms.Label comp2ValueLbl;
+        private System.Windows.Forms.Label comp3ValueLbl;
     }
 }
 
