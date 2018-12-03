@@ -58,6 +58,7 @@ namespace WindowsFormsApp1
             comp1ValueLbl.Hide();
             comp2ValueLbl.Hide();
             comp3ValueLbl.Hide();
+            playerNameLbl.Hide();
         }
 
         private void StartGame()
@@ -118,6 +119,8 @@ namespace WindowsFormsApp1
                 nameLbl.Hide();
                 nameBox.Hide();
                 HideRadioBtns();
+                playerNameLbl.Show();
+                playerNameLbl.Text = nameBox.Text;
 
                 com1Card1.SizeMode = PictureBoxSizeMode.StretchImage;
                 com1Card2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -245,7 +248,7 @@ namespace WindowsFormsApp1
             dlr.cardObjects.Add(dealerCard1);
             dlr.cardObjects.Add(dealerCard2);
             dlr.valueLabel = dealerValueLbl;
-            dlr.winLoseLbl = winLoseLbl;
+            dlr.winLoseLbl = dealerBustLbl;
             dlr.dealBtn = dealBtn;
             dlr.standBtn = standBtn;
             dlr.isDealer = true;
@@ -364,7 +367,7 @@ namespace WindowsFormsApp1
                         card.Value = values[i];
                         card.Name = names[i];
 
-                        if (values[i] == 1 || values[i] == 11)
+                        if (values[i] == 1)
                         {
                             card.Ace = true;
                         }
@@ -588,6 +591,7 @@ namespace WindowsFormsApp1
                         c2.addCard(deck[0]);
                         deck.Remove(deck[0]);
                         c2.showCards();
+                        Wait(1500);
                         if (int.Parse(c2.calculateValue().ToString()) > 21)
                         {
                             c2Total = 0;
@@ -723,10 +727,12 @@ namespace WindowsFormsApp1
 
         private void DealerAI()
         {
-            currentTurnLbl.Text = "TURN: Dealer";
-            descLbl.Text = "Dealer is deciding...";
-
             Hand dlr = players[1];
+            currentTurnLbl.Text = "TURN: Dealer";
+            descLbl.Text = "Dealer is revealing their card...";
+            Wait(1500);
+            ShowDealerCard();
+            dealerValueLbl.Text = "Value: " + dlr.calculateValue().ToString();
             Wait(1500);
 
             // If everyone has busted
@@ -765,8 +771,6 @@ namespace WindowsFormsApp1
                             descLbl.Text = "Dealer has busted.";
                             descLbl.ForeColor = Color.Red;
                             Wait(2000);
-                            ShowDealerCard();
-                            dealerValueLbl.Text = "Final Value: " + dlr.calculateValue().ToString();
                             CalculateWinner();
                         }
                         else if (int.Parse(dlr.calculateValue().ToString()) < 21)
@@ -776,9 +780,6 @@ namespace WindowsFormsApp1
                             Wait(1500);
                             descLbl.Text = "Dealer has decided to stand.";
                             Wait(1500);
-                            descLbl.Text = "Dealer is revealing their other card...";
-                            ShowDealerCard();
-                            dealerValueLbl.Text = "Value: " + dlr.calculateValue().ToString();
 
                             CalculateWinner();
                         }
@@ -799,9 +800,6 @@ namespace WindowsFormsApp1
                     dlrTotal = dlr.calculateValue();
                     descLbl.Text = "Dealer has decided to stand.";
                     Wait(1500);
-                    descLbl.Text = "Dealer is revealing their other card...";
-                    ShowDealerCard();
-                    dealerValueLbl.Text = "Value: " + dlr.calculateValue().ToString();
 
                     CalculateWinner();
                 }

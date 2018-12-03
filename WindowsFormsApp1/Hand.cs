@@ -43,7 +43,9 @@ namespace WindowsFormsApp1
                 {
                     aceCount++;
                 }
+
             }
+
 
             return total;
 

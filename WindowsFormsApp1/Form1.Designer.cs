@@ -66,6 +66,8 @@
             this.comp3Bust = new System.Windows.Forms.Label();
             this.comp2ValueLbl = new System.Windows.Forms.Label();
             this.comp3ValueLbl = new System.Windows.Forms.Label();
+            this.playerNameLbl = new System.Windows.Forms.Label();
+            this.dealerBustLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userCard1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userCard2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dealerCard1)).BeginInit();
@@ -209,7 +211,7 @@
             // 
             this.winLoseLbl.AutoSize = true;
             this.winLoseLbl.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.winLoseLbl.Location = new System.Drawing.Point(8, 468);
+            this.winLoseLbl.Location = new System.Drawing.Point(6, 424);
             this.winLoseLbl.Name = "winLoseLbl";
             this.winLoseLbl.Size = new System.Drawing.Size(0, 25);
             this.winLoseLbl.TabIndex = 16;
@@ -457,12 +459,33 @@
             this.comp3ValueLbl.TabIndex = 41;
             this.comp3ValueLbl.Text = "Value:";
             // 
+            // playerNameLbl
+            // 
+            this.playerNameLbl.AutoSize = true;
+            this.playerNameLbl.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerNameLbl.Location = new System.Drawing.Point(6, 464);
+            this.playerNameLbl.Name = "playerNameLbl";
+            this.playerNameLbl.Size = new System.Drawing.Size(80, 25);
+            this.playerNameLbl.TabIndex = 42;
+            this.playerNameLbl.Text = "NAME";
+            // 
+            // dealerBustLbl
+            // 
+            this.dealerBustLbl.AutoSize = true;
+            this.dealerBustLbl.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dealerBustLbl.Location = new System.Drawing.Point(519, 22);
+            this.dealerBustLbl.Name = "dealerBustLbl";
+            this.dealerBustLbl.Size = new System.Drawing.Size(0, 23);
+            this.dealerBustLbl.TabIndex = 43;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
             this.ClientSize = new System.Drawing.Size(1328, 741);
+            this.Controls.Add(this.dealerBustLbl);
+            this.Controls.Add(this.playerNameLbl);
             this.Controls.Add(this.comp3ValueLbl);
             this.Controls.Add(this.comp2ValueLbl);
             this.Controls.Add(this.comp3Bust);
@@ -562,6 +585,8 @@
         private System.Windows.Forms.Label comp3Bust;
         private System.Windows.Forms.Label comp2ValueLbl;
         private System.Windows.Forms.Label comp3ValueLbl;
+        private System.Windows.Forms.Label playerNameLbl;
+        private System.Windows.Forms.Label dealerBustLbl;
     }
 }
 
