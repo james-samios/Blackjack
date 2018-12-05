@@ -1,3 +1,3 @@
-# BlackJack 2018
+# Blackjack 2018
 
-A quick starting template for students to start a Black Jack game
+James Samios - T4 HSC Assessment 1
